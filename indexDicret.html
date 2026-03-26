@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Дней для Мамы | Развитие мозга в декрете | Альметьевск</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #fdf6f0 0%, #fff 100%);
+        }
+
+        /* Навигация */
+        nav {
+            background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(233, 30, 99, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Герой секция */
+        .hero {
+            margin-top: 60px;
+            background: linear-gradient(rgba(233, 30, 99, 0.8), rgba(240, 98, 146, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><circle fill="%23f8bbd9" cx="600" cy="300" r="200"/><circle fill="%23f48fb1" cx="400" cy="200" r="100"/><circle fill="%23f06292" cx="800" cy="400" r="150"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-badge {
+            background: white;
+            color: #e91e63;
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #e91e63;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 10px;
+            border: 3px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary {
+            background: #ff6b6b;
+            color: white;
+            border-color: #ff6b6b;
+        }
+
+        .btn-primary:hover {
+            background: #ee5a5a;
+        }
+
+        /* Секции */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #e91e63;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* О программе */
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: linear-gradient(135deg, #fdf6f0 0%, #fff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.1);
+            border: 2px solid #f8bbd9;
+        }
+
+        .about-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card h3 {
+            color: #e91e63;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 7 Дней программы */
+        .program {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+        }
+
+        .program h2 {
+            color: #880e4f;
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(233, 30, 99, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .day-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.25);
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .day-number {
+            background: white;
+            color: #e91e63;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 0.5rem;
+        }
+
+        .day-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .day-body {
+            padding: 1.5rem;
+        }
+
+        .day-section {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #f8bbd9;
+        }
+
+        .day-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .day-section h4 {
+            color: #e91e63;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .day-section p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #fce4ec;
+            color: #e91e63;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin: 2px;
+        }
+
+        /* Советы */
+        .tips {
+            background: white;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .tip-card {
+            background: linear-gradient(135deg, #fff3e0 0%, #fff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #ff9800;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .tip-card h3 {
+            color: #e65100;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tip-card ul {
+            list-style: none;
+            margin-left: 1rem;
+        }
+
+        .tip-card li {
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .tip-card li:before {
+            content: "🌟 ";
+            position: absolute;
+            left: -1.5rem;
+        }
+
+        /* Рецепты */
+        .recipes {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .recipes h2 {
+            color: #2e7d32;
+        }
+
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.1);
+        }
+
+        .recipe-header {
+            background: linear-gradient(135deg, #4caf50 0%, #81c784 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .recipe-body {
+            padding: 1.5rem;
+        }
+
+        .recipe-body h4 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+
+        .recipe-body ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+            color: #555;
+        }
+
+        .recipe-body li {
+            padding: 0.3rem 0;
+        }
+
+        /* Контакты */
+        .contact {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+        }
+
+        .contact h2 {
+            color: #f8bbd9;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            margin: 1rem 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item h3 {
+            color: #f8bbd9;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-item p {
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: #f8bbd9;
+            text-decoration: none;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            color: #333;
+        }
+
+        .contact-form h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #e91e63;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #fce4ec;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #e91e63;
+        }
+
+        .form-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .form-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Футер */
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .days-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Анимация */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-badge {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Прогресс бар */
+        .progress-container {
+            background: #fce4ec;
+            border-radius: 20px;
+            padding: 1rem;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+
+        .progress-bar {
+            background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+            height: 10px;
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.5s;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 0.5rem;
+            color: #e91e63;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav>
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#about">О программе</a></li>
+            <li><a href="#program">7 Дней</a></li>
+            <li><a href="#tips">Советы</a></li>
+            <li><a href="#recipes">Рецепты</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <!-- Герой секция -->
+    <section class="hero" id="home">
+        <div>
+            <div class="hero-badge">🎯 Бесплатный марафон</div>
+            <h1>7 Дней для Мамы в Декрете</h1>
+            <p>Развиваем мозг, восстанавливаем энергию и находим время для себя! 
+            Простые упражнения, игры и рецепты для мам Альметьевска</p>
+            <a href="#program" class="btn btn-primary">Начать марафон</a>
+            <a href="#contact" class="btn">Записаться</a>
+        </div>
+    </section>
+
+    <!-- О программе -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Что вас ждёт?</h2>
+            <p class="section-subtitle">Неделя заботы о себе и развития мозга</p>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🧠</div>
+                    <h3>Нейроупражнения</h3>
+                    <p>Простые техники для активации мозга за 10-15 минут в день</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🎮</div>
+                    <h3>Игры с малышом</h3>
+                    <p>Развивашки, которые полезны и маме, и ребёнку</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🥗</div>
+                    <h3>Правильное питание</h3>
+                    <p>Рецепты для энергии и концентрации внимания</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">💆</div>
+                    <h3>Релаксация</h3>
+                    <p>Техники снятия стресса и восстановления сил</p>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+                <div class="progress-text">Прогресс: <span id="progressText">0</span>/7 дней</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7 Дней программы -->
+    <section class="program" id="program">
+        <div class="container">
+            <h2>Программа на 7 дней</h2>
+            <p class="section-subtitle">Каждый день — новая тема и практика</p>
+            <div class="days-grid">
+
+                <!-- День 1 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">1</div>
+                        <div class="day-title">Понедельник</div>
+                        <div>Пробуждение мозга</div>
+                    </div>
+                    <div class="day-body">
+                        <div class="day-section">
+                            <h4>🎯 Упражнение</h4>
+                            <p>«Перекрёстные движения» — 5 минут утром. Касайтесь левой рукой правого колена и наоборот</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>🎮 Игра с малышом</h4>
+                            <p>«Зеркало» — повторяйте движения друг друга по очереди</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>💡 Совет</h4>
+                            <p>Выпейте стакан воды сразу после пробуждения</p>
+                        </div>
+                        <div>
+                            <span class="tag">10 мин</span>
+                            <span class="tag">Легко</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- День 2 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">2</div>
+                        <div class="day-title">Вторник</div>
+                        <div>Память и внимание</div>
+                    </div>
+                    <div class="day-body">
+                        <div class="day-section">
+                            <h4>🎯 Упражнение</h4>
+                            <p>«5 предметов» — назовите 5 предметов одного цвета вокруг себя</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>🎮 Игра с малышом</h4>
+                            <p>«Найди игрушку» — прячьте и ищите вместе</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>💡 Совет</h4>
+                            <p>Делайте паузы между задачами для перезагрузки</p>
+                        </div>
+                        <div>
+                            <span class="tag">15 мин</span>
+                            <span class="tag">Средне</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- День 3 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">3</div>
+                        <div class="day-title">Среда</div>
+                        <div>Творчество</div>
+                    </div>
+                    <div class="day-body">
+                        <div class="day-section">
+                            <h4>🎯 Упражнение</h4>
+                            <p>«Рисуем двумя руками» — одновременно обеими руками</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>🎮 Игра с малышом</h4>
+                            <p>«Пальчиковые краски» — творите вместе</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>💡 Совет</h4>
+                            <p>Не оценивайте результат, важен процесс</p>
+                        </div>
+                        <div>
+                            <span class="tag">20 мин</span>
+                            <span class="tag">Весело</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- День 4 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">4</div>
+                        <div class="day-title">Четверг</div>
+                        <div>Логика</div>
+                    </div>
+                    <div class="day-body">
+                        <div class="day-section">
+                            <h4>🎯 Упражнение</h4>
+                            <p>«Судоку для начинающих» или простые головоломки</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>🎮 Игра с малышом</h4>
+                            <p>«Сортировка» — раскладывайте предметы по цвету/форме</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>💡 Совет</h4>
+                            <p>Решайте задачи в тишине для лучшей концентрации</p>
+                        </div>
+                        <div>
+                            <span class="tag">15 мин</span>
+                            <span class="tag">Вдумчиво</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- День 5 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">5</div>
+                        <div class="day-title">Пятница</div>
+                        <div>Эмоциональный интеллект</div>
+                    </div>
+                    <div class="day-body">
+                        <div class="day-section">
+                            <h4>🎯 Упражнение</h4>
+                            <p>«Дневник эмоций» — запишите 3 чувства за день</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>🎮 Игра с малышом</h4>
+                            <p>«Рожицы» — показывайте разные эмоции в зеркале</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>💡 Совет</h4>
+                            <p>Проговаривайте свои эмоции вслух</p>
+                        </div>
+                        <div>
+                            <span class="tag">10 мин</span>
+                            <span class="tag">Осознанно</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- День 6 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">6</div>
+                        <div class="day-title">Суббота</div>
+                        <div>Движение и мозг</div>
+                    </div>
+                    <div class="day-body">
+                        <div class="day-section">
+                            <h4>🎯 Упражнение</h4>
+                            <p>«Танцевальная разминка» — 10 минут под музыку</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>🎮 Игра с малышом</h4>
+                            <p>«Полоса препятствий» — из подушек и игрушек</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>💡 Совет</h4>
+                            <p>Движение улучшает кровообращение мозга</p>
+                        </div>
+                        <div>
+                            <span class="tag">20 мин</span>
+                            <span class="tag">Активно</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- День 7 -->
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">7</div>
+                        <div class="day-title">Воскресенье</div>
+                        <div>Отдых и интеграция</div>
+                    </div>
+                    <div class="day-body">
+                        <div class="day-section">
+                            <h4>🎯 Упражнение</h4>
+                            <p>«Медитация 5 минут» — просто дышите и наблюдайте</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>🎮 Игра с малышом</h4>
+                            <p>«Тихие игры» — книжки, пазлы, спокойное время</p>
+                        </div>
+                        <div class="day-section">
+                            <h4>💡 Совет</h4>
+                            <p>Подведите итоги недели и похвалите себя!</p>
+                        </div>
+                        <div>
+                            <span class="tag">15 мин</span>
+                            <span class="tag">Релакс</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Советы -->
+    <section class="tips" id="tips">
+        <div class="container">
+            <h2>💡 Полезные советы</h2>
+            <p class="section-subtitle">Для мам в декрете от опытных специалистов</p>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>😴 Сон и отдых</h3>
+                    <ul>
+                        <li>Спите когда спит малыш</li>
+                        <li>15 минут дневного отдыха восстанавливают силы</li>
+                        <li>Проветривайте комнату перед сном</li>
+                        <li>Избегайте экранов за час до сна</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <h3>🍎 Питание для мозга</h3>
+                    <ul>
+                        <li>Орехи и семена — источник омега-3</li>
+                        <li>Ягоды улучшают память</li>
+                        <li>Вода — 1.5-2 литра в день</li>
+                        <li>Избегайте сахара в избытке</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <h3>🧘 Стресс-менеджмент</h3>
+                    <ul>
+                        <li>Дыхание 4-7-8 для успокоения</li>
+                        <li>Прогулки на свежем воздухе</li>
+                        <li>Общение с другими мамами</li>
+                        <li>Хобби хотя бы 30 минут в неделю</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <h3>⏰ Тайм-менеджмент</h3>
+                    <ul>
+                        <li>Планируйте 3 главных дела на день</li>
+                        <li>Делегируйте что можно</li>
+                        <li>Используйте таймер для фокуса</li>
+                        <li>Не стремитесь к идеалу</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Рецепты -->
+    <section class="recipes" id="recipes">
+        <div class="container">
+            <h2>🥗 Рецепты для энергии</h2>
+            <p class="section-subtitle">Быстро, полезно и вкусно</p>
+            <div class="recipes-grid">
+                <div class="recipe-card">
+                    <div class="recipe-header">
+                        <h3>🥣 Утренний смузи</h3>
+                    </div>
+                    <div class="recipe-body">
+                        <h4>Ингредиенты:</h4>
+                        <ul>
+                            <li>Банан — 1 шт</li>
+                            <li>Шпинат — горсть</li>
+                            <li>Овсянка — 2 ст.л</li>
+                            <li>Молоко/вода — 200 мл</li>
+                            <li>Мёд — 1 ч.л</li>
+                        </ul>
+                        <h4 style="margin-top: 1rem;">Приготовление:</h4>
+                        <p>Взбить всё в блендере 1 минуту. Готово!</p>
+                    </div>
+                </div>
+
+                <div class="recipe-card">
+                    <div class="recipe-header">
+                        <h3>🥙 Энерго-батончики</h3>
+                    </div>
+                    <div class="recipe-body">
+                        <h4>Ингредиенты:</h4>
+                        <ul>
+                            <li>Финики — 10 шт</li>
+                            <li>Орехи — 100 г</li>
+                            <li>Овсянка — 50 г</li>
+                            <li>Какао — 1 ст.л</li>
+                            <li>Кокосовая стружка</li>
+                        </ul>
+                        <h4 style="margin-top: 1rem;">Приготовление:</h4>
+                        <p>Измельчить, сформировать батончики, охладить 30 мин</p>
+                    </div>
+                </div>
+
+                <div class="recipe-card">
+                    <div class="recipe-header">
+                        <h3>🥗 Салат для мозга</h3>
+                    </div>
+                    <div class="recipe-body">
+                        <h4>Ингредиенты:</h4>
+                        <ul>
+                            <li>Авокадо — 1 шт</li>
+                            <li>Яйцо — 2 шт</li>
+                            <li>Грецкие орехи — 30 г</li>
+                            <li>Зелень — пучок</li>
+                            <li>Оливковое масло</li>
+                        </ul>
+                        <h4 style="margin-top: 1rem;">Приготовление:</h4>
+                        <p>Нарезать, смешать, заправить маслом. 10 минут</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>📞 Свяжитесь с нами</h2>
+            <p class="section-subtitle" style="color: #f8bbd9;">Альметьевск — мы рядом!</p>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>👤 Организатор</h3>
+                        <p>Центр развития мам «МамаВремя»</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📍 Город</h3>
+                        <p>Альметьевск, Республика Татарстан</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📱 Телефон / WhatsApp</h3>
+                        <p><a href="tel:+79871735439">+7 (987) 173-54-39</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>💬 Telegram</h3>
+                        <p><a href="https://t.me/+79871735439">@mamavremya_almetyevsk</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>⏰ Режим связи</h3>
+                        <p>Ежедневно с 9:00 до 21:00</p>
+                    </div>
+                    <a href="tel:+79871735439" class="btn btn-primary" style="margin-top: 1rem;">Позвонить сейчас</a>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Записаться на марафон</h3>
+                    <form id="marathonForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="child">Возраст ребёнка</label>
+                            <select id="child" name="child">
+                                <option value="">Выберите возраст</option>
+                                <option value="0-6">0-6 месяцев</option>
+                                <option value="6-12">6-12 месяцев</option>
+                                <option value="1-2">1-2 года</option>
+                                <option value="2-3">2-3 года</option>
+                                <option value="3+">3+ года</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Комментарий</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Ваши вопросы или пожелания"></textarea>
+                        </div>
+                        <button type="submit" class="form-btn">🎁 Записаться бесплатно</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2024 Центр развития мам «МамаВремя» | Альметьевск</p>
+        <p>📞 +7 (987) 173-54-39 | 💌 mamavremya@almetyevsk.ru</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Забота о маме — забота о всей семье ❤️</p>
+    </footer>
+
+    <script>
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Обработка формы
+        document.getElementById('marathonForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const child = document.getElementById('child').value;
+            
+            alert(`Спасибо, ${name}! 🎉\nВы записаны на марафон "7 Дней для Мамы"!\nТелефон: ${phone}\nВозраст ребёнка: ${child || 'не указан'}\n\nМы свяжемся с вами в ближайшее время!`);
+            
+            this.reset();
+        });
+
+        // Маска для телефона
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            if (!x[2]) {
+                e.target.value = x[1] ? '+7' : '';
+            } else {
+                e.target.value = !x[3] ? `+7 (${x[2]}` : `+7 (${x[2]}) ${x[3]}` + (x[4] ? `-${x[4]}` : '') + (x[5] ? `-${x[5]}` : '');
+            }
+        });
+
+        // Прогресс бар (демо)
+        let progress = 0;
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        
+        // Симуляция прогресса при скролле
+        window.addEventListener('scroll', function() {
+            const scrolled = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            progress = Math.min(Math.round((scrolled / maxScroll) * 7), 7);
+            progressBar.style.width = (progress / 7 * 100) + '%';
+            progressText.textContent = progress;
+        });
+
+        // Анимация появления карточек
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.day-card, .tip-card, .recipe-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(card);
+        });
+    </script>
+
+</body>
+</html>
