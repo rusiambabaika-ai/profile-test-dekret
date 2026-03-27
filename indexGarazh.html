@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аренда гаражей в Альметьевске | Руслан</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Навигация */
+        nav {
+            background: #2c3e50;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* Герой секция */
+        .hero {
+            margin-top: 60px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2334495e" width="1200" height="600"/><rect fill="%237f8c8d" x="200" y="200" width="800" height="300"/><rect fill="%2395a5a6" x="250" y="250" width="700" height="200"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: #f39c12;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-call {
+            background: #27ae60;
+            color: white;
+        }
+
+        /* Секции */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        /* Преимущества */
+        .features {
+            background: #ecf0f1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Гаражи */
+        .garages {
+            background: #fff;
+        }
+
+        .garages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .garage-card {
+            background: white;
+            border: 2px solid #ecf0f1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .garage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-color: #f39c12;
+        }
+
+        .garage-header {
+            background: #2c3e50;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .garage-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .garage-number {
+            background: #f39c12;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .garage-body {
+            padding: 1.5rem;
+        }
+
+        .garage-body ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .garage-body li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .garage-body li:before {
+            content: "✓ ";
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .garage-price {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #f39c12;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Контакты */
+        .contact {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .contact h2 {
+            color: #f39c12;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            margin: 1rem 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+
+        .contact-item h3 {
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-item p {
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            color: #333;
+        }
+
+        .contact-form h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #f39c12;
+        }
+
+        .form-btn {
+            width: 100%;
+            padding: 15px;
+            background: #f39c12;
+            color: #2c3e50;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form-btn:hover {
+            background: #e67e22;
+        }
+
+        /* Футер */
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Анимация пульсации для кнопки звонка */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(39, 174, 96, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
+        }
+
+        .btn-call {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav>
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#features">Преимущества</a></li>
+            <li><a href="#garages">Гаражи</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <!-- Герой секция -->
+    <section class="hero" id="home">
+        <div>
+            <h1>🏭 Аренда гаражей в Альметьевске</h1>
+            <p>10 гаражей для вашего бизнеса. Идеально для автосервиса, склада, производства и торговли</p>
+            <a href="tel:+79871735439" class="btn btn-call">📞 +7 (987) 173-54-39</a>
+            <a href="#garages" class="btn">Смотреть варианты</a>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Почему выбирают нас</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📍</div>
+                    <h3>Удобное расположение</h3>
+                    <p>Гаражи в разных районах Альметьевска</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Все коммуникации</h3>
+                    <p>Электричество, вода, отопление</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Безопасность</h3>
+                    <p>Охраняемая территория, видеонаблюдение</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>Гибкие цены</h3>
+                    <p>Аренда от 5000 ₽/месяц</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Гаражи -->
+    <section class="garages" id="garages">
+        <div class="container">
+            <h2>10 Гаражей для Вашего Бизнеса</h2>
+            <div class="garages-grid">
+                
+                <!-- Гараж 1 -->
+                <div class="garage-card">
+                    <div class="garage-header">
+                        <h3>Автосервис</h3>
+                        <span class="garage-number">Гараж №1</span>
+                    </div>
+                    <div class="garage-body">
+                        <ul>
+                            <li>Площадь: 45 м²</li>
+                            <li>Высота потолков: 3.5 м</li>
+                            <li>Электричество: 380В</li>
+                            <li>Ворота: распашные</li>
+                            <li>Подходит для: СТО, шиномонтаж</li>
+                        </ul>
+                        <div class="garage-price">от 15 000 ₽/мес</div>
+                    </div>
+                </div>
+
+                <!-- Гараж 2 -->
+                <div class="garage-card">
+                    <div class="garage-header">
+                        <h3>Складское помещение</h3>
+                        <span class="garage-number">Гараж №2</span>
+                    </div>
+                    <div class="garage-body">
+                        <ul>
+                            <li>Площадь: 60 м²</li>
+                            <li>Высота потолков: 4 м</li>
+                            <li>Сухое помещение</li>
+                            <li>Погрузочная зона</li>
+                            <li>Подходит для: хранения товаров</li>
+                        </ul>
+                        <div class="garage-price">от 12 000 ₽/мес</div>
+                    </div>
+                </div>
+
+                <!-- Гараж 3 -->
+                <div class="garage-card">
+                    <div class="garage-header">
+                        <h3>Мастерская</h3>
+                        <span class="garage-number">Гараж №3</span>
+                    </div>
+                    <div class="garage-body">
+                        <ul>
+                            <li>Площадь: 35 м²</li>
+                            <li>Высота потолков: 3 м</li>
+                            <li>Верстак в комплекте</li>
+                            <li>Инструментальная комната</li>
+                            <li>Подходит для: ремонта техники</li>
+                        </ul>
+                        <div class="garage-price">от 10 000 ₽/мес</div>
+                    </div>
+                </div>
+
+                <!-- Гараж 4 -->
+                <div class="garage-card">
+                    <div class="garage-header">
+                        <h3>Торговая точка</h3>
+                        <span class="garage-number">Гараж №4</span>
+                    </div>
+                    <div class="garage-body">
+                        <ul>
+                            <li>Площадь: 40 м²</li>
+                            <li>Высота потолков: 3.2 м</li>
+                            <li>Витринные окна</li>
+                            <li>Отдельный вход</li>
+                            <li>Подходит для: магазина, пункта выдачи</li>
+                        </ul>
+                        <div class="garage-price">от 18 000 ₽/мес</div>
+                    </div>
+                </div>
+
+                <!-- Гараж 5 -->
+                <div class="garage-card">
+                    <div class="garage-header">
+                        <h3>Производство</h3>
+                        <span class="garage-number">Гараж №5</span>
+                    </div>
+                    <div class="garage-body">
+                        <ul>
+                            <li>Площадь: 80 м²</li>
+                            <li>Высота потолков: 4.5 м</li>
+                            <li>Мощная электросеть</li>
+                            <li>Вентиляция</li>
+                            <li>Подходит для: цеха, производства</li>
+                        </ul>
+                        <div class="garage-price">от 25 000 ₽/мес</div>
+                    </div>
+                </div>
+
+                <!-- Гараж 6 -->
+                <div class="garage-card">
+                    <div class="garage-header">
+                        <h3>Автомойка</h3>
+                        <span class="garage-number">Гараж №6</span>
+                    </div>
+                    <div class="garage-body">
+                        <ul>
+                            <li>Площадь: 50 м²</li>
+                            <li>Высота потолков: 3.8 м</li>
+                            <li>Водоотведение</li>
+                            <li>Подвод воды</li>
+                            <li>Подходит для: мойки, детейлинга</li>
+                        </ul>
+                        <div class="garage-price">от 20 000 ₽/мес</div>
+                    </div>
+                </div>
+
+                <!-- Гараж 7 -->
+                <div class="garage-card">
+                    <div class="garage-header">
+                        <h3>Холодильник</h3>
+                        <span class="garage-number">Гараж №7</span>
+                    </div>
+                    <div class="garage-body">
+                        <ul>
+                            <li>Площадь: 30 м²</li>
+                            <li>Высота потолков: 3 м</li>
+                            <li>Температурный режим</li>
+                            <li>Утеплённый</li>
+                            <li>Подходит для: хранения продуктов</li>
+                        </ul>
+                        <div class="garage-price">от 14 000 ₽/мес</div>
+                    </div>
+                </div>
+
+                <!-- Гараж 8 -->
+                <div class="garage-card">
+                    <div class="garage-header">
+                        <h3>Офис + Склад</h3>
+                        <span class="garage-number">Гараж №8</span>
+                    </div>
+                    <div class="garage-body">
+                        <ul>
+                            <li>Площадь: 55 м²</li>
+                            <li>Высота потолков: 3.5 м</li>
+                            <li>Зонирование</li>
+                            <li>Интернет</li>
+                            <li>Подходит для: офиса с складом</li>
+                        </ul>
+                        <div class="garage-price">от 16 000 ₽/мес</div>
+                    </div>
+                </div>
+
+                <!-- Гараж 9 -->
+                <div class="garage-card">
+                    <div class="garage-header">
+                        <h3>Бокс для грузовых</h3>
+                        <span class="garage-number">Гараж №9</span>
+                    </div>
+                    <div class="garage-body">
+                        <ul>
+                            <li>Площадь: 100 м²</li>
+                            <li>Высота потолков: 5 м</li>
+                            <li>Широкие ворота</li>
+                            <li>Подъездные пути</li>
+                            <li>Подходит для: грузовиков, спецтехники</li>
+                        </ul>
+                        <div class="garage-price">от 30 000 ₽/мес</div>
+                    </div>
+                </div>
+
+                <!-- Гараж 10 -->
+                <div class="garage-card">
+                    <div class="garage-header">
+                        <h3>Универсальный</h3>
+                        <span class="garage-number">Гараж №10</span>
+                    </div>
+                    <div class="garage-body">
+                        <ul>
+                            <li>Площадь: 42 м²</li>
+                            <li>Высота потолков: 3.3 м</li>
+                            <li>Все коммуникации</li>
+                            <li>Свободная планировка</li>
+                            <li>Подходит для: любого бизнеса</li>
+                        </ul>
+                        <div class="garage-price">от 13 000 ₽/мес</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Свяжитесь с нами</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>👤 Арендодатель</h3>
+                        <p><strong>Руслан</strong></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📞 Телефон</h3>
+                        <p><a href="tel:+79871735439" style="color: #f39c12; text-decoration: none;">+7 (987) 173-54-39</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📍 Город</h3>
+                        <p>Альметьевск, Республика Татарстан</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>⏰ Режим связи</h3>
+                        <p>Ежедневно с 8:00 до 22:00</p>
+                    </div>
+                    <a href="tel:+79871735439" class="btn btn-call" style="margin-top: 1rem;">Позвонить сейчас</a>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Оставить заявку</h3>
+                    <form id="rentalForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="garage">Интересующий гараж</label>
+                            <select id="garage" name="garage">
+                                <option value="">Выберите гараж</option>
+                                <option value="1">Гараж №1 - Автосервис</option>
+                                <option value="2">Гараж №2 - Склад</option>
+                                <option value="3">Гараж №3 - Мастерская</option>
+                                <option value="4">Гараж №4 - Торговая точка</option>
+                                <option value="5">Гараж №5 - Производство</option>
+                                <option value="6">Гараж №6 - Автомойка</option>
+                                <option value="7">Гараж №7 - Холодильник</option>
+                                <option value="8">Гараж №8 - Офис + Склад</option>
+                                <option value="9">Гараж №9 - Бокс для грузовых</option>
+                                <option value="10">Гараж №10 - Универсальный</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Комментарий</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Ваши пожелания"></textarea>
+                        </div>
+                        <button type="submit" class="form-btn">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2024 Аренда гаражей в Альметьевске. Арендодатель: Руслан</p>
+        <p>📞 +7 (987) 173-54-39</p>
+    </footer>
+
+    <script>
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Обработка формы
+        document.getElementById('rentalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const garage = document.getElementById('garage').value;
+            
+            // Здесь можно добавить отправку данных на сервер или в Telegram
+            // Для демонстрации покажем сообщение
+            alert(`Спасибо, ${name}! Ваша заявка принята.\nГараж: №${garage || 'любой'}\nТелефон: ${phone}\n\nРуслан свяжется с вами в ближайшее время!`);
+            
+            // Очистка формы
+            this.reset();
+        });
+
+        // Маска для телефона
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            if (!x[2]) {
+                e.target.value = x[1] ? '+7' : '';
+            } else {
+                e.target.value = !x[3] ? `+7 (${x[2]}` : `+7 (${x[2]}) ${x[3]}` + (x[4] ? `-${x[4]}` : '') + (x[5] ? `-${x[5]}` : '');
+            }
+        });
+    </script>
+
+</body>
+</html>
